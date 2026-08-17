@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/dok/
+
+Sitemap: https://carva.co.id/sitemap.xml

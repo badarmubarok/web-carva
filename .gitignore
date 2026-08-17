@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+Thumbs.db
+.DS_Store
+
+# Kredensial hosting TIDAK boleh masuk repo (disimpan di luar folder ini)
+kredensial*
+*.env

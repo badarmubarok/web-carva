@@ -1,0 +1,28 @@
+/* Tambahan khusus versi SATU HALAMAN (index.html). Dimuat setelah style.css. */
+
+/* Penanda kemajuan gulir di bawah header */
+.progress {
+  position: fixed; left: 0; top: 0; z-index: 101;
+  height: 3px; width: 100%; background: transparent; pointer-events: none;
+}
+.progress i {
+  display: block; height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--leaf-500), var(--gold-500));
+  transition: width .1s linear;
+}
+
+/* Tombol kembali ke atas */
+.totop {
+  position: fixed; right: clamp(.9rem, 2vw, 1.6rem); bottom: clamp(.9rem, 2vw, 1.6rem);
+  z-index: 99; width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--line); background: #fff; color: var(--green-800);
+  box-shadow: var(--shadow-md); cursor: pointer;
+  display: grid; place-items: center;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease, background .18s ease, color .18s ease;
+}
+.totop.is-on { opacity: 1; visibility: visible; transform: none; }
+.totop:hover { background: var(--green-700); color: #fff; border-color: var(--green-700); }
+
+/* Bagian yang berdampingan di satu gulir perlu jeda visual lebih tegas */
+.sec + .sec:not(.sec-cream):not(.sec-line) { border-top: 1px solid var(--line); }
