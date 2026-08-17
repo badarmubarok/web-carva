@@ -101,10 +101,25 @@ Butuh Python + `pymupdf` + `Pillow` (mis. `E:\laragon\bin\python\312-64\python.e
 | `build-aset-transparan.py` | Perbaiki dekorasi bertransparansi + potong 6 foto struktur organisasi. |
 | `build-logo.py` | Logo situs + favicon dari `logo-sumber-CARVA21.jpg` (latar putih → transparan). |
 | `gen-multi-halaman.py` | **Bangkitkan ulang seluruh versi multi-halaman dari `index.html`.** |
+| `buat-zip.py` | **Buat ZIP siap unggah** (varian lengkap + tanpa PDF 52 MB) ke `D:\Desktop\@arsip\web carva\`. |
 
-> Setiap kali `index.html` diubah, jalankan `gen-multi-halaman.py` agar versi
-> multi-halaman tidak basi. Jangan mengedit 8 berkas multi-halaman secara
-> manual — perubahannya akan tertimpa.
+### Alur setiap revisi (jangan dipotong)
+
+Situs diunggah **manual** oleh pemiliknya lewat cPanel, jadi revisi belum
+selesai sampai ZIP-nya ikut diperbarui:
+
+```bash
+python tools/gen-multi-halaman.py   # samakan versi multi-halaman
+python tools/buat-zip.py            # ZIP baru untuk unggah manual
+git add -A && git commit && git push # GitHub Pages ikut terbarui
+```
+
+> Jangan mengedit 8 berkas multi-halaman secara manual — perubahannya akan
+> tertimpa oleh `gen-multi-halaman.py`.
+>
+> ZIP lama bertanggal sebelumnya jangan dipakai lagi: bedanya tidak terlihat
+> dari nama berkas kalau tanggalnya sama, jadi selalu perhatikan tanggal pada
+> nama ZIP dan hapus yang usang.
 
 ## Pratinjau lokal
 
