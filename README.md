@@ -171,3 +171,32 @@ Kalau nanti situs dipindah ke server sendiri, ubah `canonical` di 9 berkas HTML,
 - Koordinat pasti kantor: peta memakai titik perkiraan Ciomas
   (−6,5895 / 106,7585). Kirim titik Google Maps yang benar bila perlu tepat.
 - Konfirmasi nomor telepon 2026 masih aktif (situs lama memakai nomor lain).
+
+## Salinan di VM internal 192.168.1.30
+
+Situs juga disalin ke server web internal (Apache 2.4, satu mesin dengan
+`elps.co.id`, `dek/gis/ben.elps.co.id`) lewat share SMB:
+
+```
+\192.168.1.30\root-webserver\carva      →  /var/www/html/carva
+```
+
+129 berkas, 63,3 MB. Salin ulang dengan **`robocopy /E`** (jangan `/MIR` —
+akan menghapus berkas di tujuan):
+
+```bash
+robocopy "D:\Kerjaan\ayah\@proyek_saya\web_carva" "\192.168.1.30\root-webserver\carva" /E /XD ".git" "tools" "__pycache__" "deploy" /XF "README.md" ".gitignore"
+```
+
+Vhost-nya ada di `deploy/vhost_carva.elps.co.id.conf` dan **harus dipasang oleh
+pemegang sudo di VM** (share SMB hanya memaparkan docroot, bukan
+`/etc/apache2`). Sebelum vhost aktif, `http://192.168.1.30/carva/` akan 404 —
+docroot vhost bawaan bukan akar `/var/www/html`. Sesudah aktif, uji tanpa DNS:
+
+```bash
+curl -I -H "Host: carva.elps.co.id" http://192.168.1.30/
+```
+
+Langkah terakhir mengikuti pola dek/gis/ben: A record `carva` → 103.118.175.114
+di panel DNS `elps.co.id`, lalu proxy host + SSL di Nginx Proxy Manager
+(192.168.1.3) yang meneruskan ke `192.168.1.30:80`.

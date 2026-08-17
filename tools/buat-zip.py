@@ -25,7 +25,7 @@ OUT = r"D:\Desktop\@arsip\web carva"
 PDF_BESAR = "assets/dok/Company-Profile-PT-Abhinaya-Carva-Utama-2026.pdf"
 
 # Tidak ikut diunggah ke hosting: dokumentasi internal, skrip build, data git.
-SKIP_DIR = {".git", "tools", "__pycache__"}
+SKIP_DIR = {".git", "tools", "deploy", "__pycache__"}
 SKIP_FILE = {"README.md", ".gitignore"}
 
 stamp = sys.argv[1] if len(sys.argv) > 1 else date.today().isoformat()
