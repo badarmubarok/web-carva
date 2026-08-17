@@ -115,6 +115,22 @@ Atau:
 npx --yes http-server "D:/Kerjaan/ayah/@proyek_saya/web_carva" -p 5176 -c-1
 ```
 
+## Status deploy (17 Agustus 2026)
+
+- **GitHub**: https://github.com/badarmubarok/web-carva (publik, cabang `main`).
+- **Pratinjau tayang**: https://badarmubarok.github.io/web-carva/ — GitHub Pages
+  dari `main` / root, 9 halaman + aset + PDF diverifikasi 200.
+- **carva.co.id**: BELUM. Kredensial FTP/cPanel pada `kredensial carva.txt`
+  ditolak server (`530 Login authentication failed`) di `103.7.226.28` maupun
+  `103.7.226.172`, semua varian username; SSH tertutup. Situs diunggah manual
+  lewat cPanel memakai berkas ZIP di `D:\Desktop\@arsip\web carva\`
+  (`carva-situs-…-LENGKAP.zip` / `…-tanpa-pdf-besar.zip`), langkahnya di
+  `CARA-UNGGAH-KE-CARVA.CO.ID.txt`.
+- **Arsip situs lama**: `D:\Desktop\@arsip\web carva\backup-situs-lama-carva.co.id-2026-08-17\`
+  — 45 berkas / 76 MB hasil mirror HTTP. 12 gambar galeri (folder `MHP` dan
+  `SERTIF`) tidak terselamatkan karena **server aslinya membalas HTTP 500** untuk
+  berkas-berkas itu; artinya gambar tersebut sudah rusak di situs lama.
+
 ## Deploy ke carva.co.id
 
 Situs lama berada di hosting pihak ketiga: **103.7.226.28, server LiteSpeed**
